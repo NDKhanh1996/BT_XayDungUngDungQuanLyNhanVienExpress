@@ -17,6 +17,11 @@
                 <th>Phone</th>
                 <th>Email</th>
                 <th>Avatar</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+                <td colspan="9"><a href="/add"><button>Add Staff</button></a></td>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +35,8 @@
                         <td><%= staff.phone %></td>
                         <td><%= staff.email %></td>
                         <td><%= staff.avatar %></td>
+                        <td><a href="/home/<%= staff.id %>/edit"><button>Edit</button></a></td>
+                        <td><a href="/home/<%= staff.id %>/delete"><button>Delete</button></a></td>
                     </tr>
             <% stt++ %>
             <% }) %>
