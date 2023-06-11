@@ -29,7 +29,7 @@
             <% staffArray.forEach(staff=> { %>
                     <tr>
                         <td><%= stt %></td>
-                        <td><%= staff.name %></td>
+                        <td><a href="/info/<%= staff.id %>"><%= staff.name %></a></td>
                         <td><%= staff.age %></td>
                         <td><%= staff.address %></td>
                         <td><%= staff.phone %></td>

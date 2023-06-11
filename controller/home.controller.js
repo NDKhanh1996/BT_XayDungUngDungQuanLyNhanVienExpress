@@ -36,6 +36,16 @@ class HomeController {
         HomeModel.editUpdate(staff, staffId);
         res.redirect('/home');
     }
+
+    static async showInfo(req,res){
+        const id = req.params.id;
+        const staffArray = await HomeModel.getStaffData();
+        let staff = {};
+        staffArray.forEach(element => {
+            if (element.id == id) staff = element;
+        });
+        res.render('info', { staff: staff });
+    }
 }
 
 module.exports = HomeController;

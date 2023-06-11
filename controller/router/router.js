@@ -11,6 +11,6 @@ router.get('/home/:id/delete', HomeController.delete);
 router.get('/add', HomeController.showAdd);
 router.post('/add', HomeController.add);
 
-router.get('/update, Hom')
+router.get('/info/:id', HomeController.showInfo);
 
 module.exports = router;
