@@ -7,16 +7,33 @@ class HomeController {
     }
 
     static async showAdd(req, res) {
-        res.render('add');
+        await res.render('add');
     }
 
-    static async add(req, res) {
+    static add(req, res) {
         HomeModel.add(req.body);
         res.redirect('/home');
     }
 
-    static async delete(req, res) {
+    static delete(req, res) {
         HomeModel.delete(req.params.id);
+        res.redirect('/home');
+    }
+
+    static async showUpdate(req, res) {
+        const id = req.params.id;
+        const staffArray = await HomeModel.getStaffData();
+        let staff = {};
+        staffArray.forEach(element => {
+            if (element.id == id) staff = element;
+        });
+        res.render('update', { staff: staff });
+    }
+
+    static editUpdate(req, res) {
+        const staff = req.body;
+        const staffId = req.params.id;
+        HomeModel.editUpdate(staff, staffId);
         res.redirect('/home');
     }
 }
