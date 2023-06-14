@@ -7,7 +7,7 @@
     <title>Home</title>
 </head>
 <body>
-    <table border="1">
+    <table border="1" cellspacing="0">
         <thead>
             <tr>
                 <th>STT</th>
@@ -19,6 +19,7 @@
                 <th>Avatar</th>
                 <th>Edit</th>
                 <th>Delete</th>
+                <th>Upload Avatar</th>
             </tr>
             <tr>
                 <td colspan="9"><a href="/add"><button>Add Staff</button></a></td>
@@ -37,6 +38,7 @@
                         <td><%= staff.avatar %></td>
                         <td><a href="/home/<%= staff.id %>/edit"><button>Edit</button></a></td>
                         <td><a href="/home/<%= staff.id %>/delete"><button>Delete</button></a></td>
+                        <td><form action="/avatar/<%= staff.id %>" method="post" enctype="multipart/form-data"><input type="file" name="avatar"><button type="submit">Submit</button></form></td>
                     </tr>
             <% stt++ %>
             <% }) %>

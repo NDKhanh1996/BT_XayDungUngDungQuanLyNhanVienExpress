@@ -46,6 +46,17 @@ class HomeController {
         });
         res.render('info', { staff: staff });
     }
+
+    static async addAvatar(req, res){
+        const id = req.params.id;
+        const staffArray = await HomeModel.getStaffData();
+        let staff = {};
+        staffArray.forEach(element => {
+            if (element.id == id) staff = element;
+        });
+        HomeModel.addAvatar(id, req.file)
+        res.redirect('/home');
+    }
 }
 
 module.exports = HomeController;

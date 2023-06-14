@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+// const multer = require('multer');
 const DataBase = require('./models/database/dataBase');
 const router = require('./controller/router/router');
 
 const app = new express();
+// const upload = multer({ dest: 'uploads/' })
 
 const port = 8080;
 
